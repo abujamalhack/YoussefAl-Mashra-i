@@ -1,15 +1,16 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {
-      fontFamily: {
-        'cairo': ['Cairo', 'sans-serif'],
-      },
-    },
-  },
-  plugins: [],
-}
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    host: '0.0.0.0',
+    port: 5000,
+    strictPort: true,
+    allowedHosts: ['.replit.dev'],
+    hmr: {
+      clientPort: 5000
+    }
+  }
+})
